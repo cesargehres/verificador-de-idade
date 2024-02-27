@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin: 32px 0;
+}
+
+main {
+    width: 400px;
+    height: 420px;
+    margin: auto;
+    background-color: yellow;
+}
+
+main > form {
+    text-align: center;
+}
+
+main > form > div {
+    margin: 10px;
+}
+
+main > form > div#idade {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+main > form > div#sexo {
+    display: block;
+    margin: 20px 0;
+}
+
+main > form > div#sexo > fieldset {
+    border: none;
+}
+
+fieldset > input, label {
+    margin: 8px;
+}
+
+main > form > p#str {
+    height: 16px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    background-color: blue;
+}
+
+main > form > div#imagem {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 50%;
+}
+

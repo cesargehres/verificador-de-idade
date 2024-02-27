@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <main>
+        <form action='' method="post">
+            <div id="idade">
+                <label for="idade">Idade: </label>
+                <input type="number" id="idade">
+            </div>
+            <div id="sexo">
+                <fieldset>
+                    <legend id="sexo">Sexo:</legend>
+                    <input type="radio" name="sexo" id="isexo" value="M"><label for="sexo">Mascuino</label>
+                    <input type="radio" name="sexo" id="isexo" value="F"><label for="sexo">Feminino</label>
+                </fieldset>
+            </div>
+            <div id="imagem"><!-- Aqui vai a imagem --></div>
+            <p id="str"><!-- Aqui vai a str --></p>
+            <input type="button" value="Verificar" onclick="verificar()">
+        </form>
+    </main>
+    <script>
+        function verificarIdade() {
+            const ano = 2024
+            var anoDeNascimento = window.document.querySelector("input#idade").value
+            var idade = ano - anoDeNascimento
+            return idade
+        }
+
+        function faixaEtaria() {
+            const idade = verificarIdade()
+            const bebe = 2
+            const crianca = 12
+            const adolescente = 17
+            const adulto = 50
+            if (idade <= bebe) {
+                return faixaEtaria = "bebê"
+            } else if (idade <= crianca) {
+                return faixaEtaria = "criança"
+            } else if (idade <= adolescente) {
+                return faixaEtaria = "adolescente"
+            } else if (idade <= adulto) {
+                return faixaEtaria = "adulto"
+            } else {
+                return faixaEtaria = "idoso"
+            }
+        }
+
+
+
+        function verificar() {
+            var texto = window.document.querySelector("p#str")
+            texto.innerHTML = (`<p>${faixaEtaria()} de ${verificarIdade()} anos.</p>`)
+        }
+
+        
+    </script>
+</body>
+</html>
