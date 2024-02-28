@@ -6,6 +6,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background-color: rgb(49, 126, 252);
+}
+
 header {
     text-align: center;
     margin: 32px 0;
@@ -15,47 +19,66 @@ main {
     width: 400px;
     height: 420px;
     margin: auto;
-    background-color: yellow;
-}
-
-main > form {
-    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.325);
 }
 
 main > form > div {
-    margin: 10px;
+    margin: 8px;
 }
 
-main > form > div#idade {
+main > form > div#ano {
     display: inline-block;
     margin-top: 20px;
 }
 
 main > form > div#sexo {
     display: block;
-    margin: 20px 0;
+    margin: 8px 0;
+
 }
 
 main > form > div#sexo > fieldset {
     border: none;
 }
 
-fieldset > input, label {
-    margin: 8px;
+fieldset > legend {
+    float: inline-start;
+    margin-left: 8px;
 }
 
-main > form > p#str {
-    height: 16px;
-    margin-bottom: 10px;
+fieldset > input {
+    margin: 0 8px;
     vertical-align: middle;
-    background-color: blue;
 }
 
-main > form > div#imagem {
+main > form > input[type=button] {
+    width: 100%;
+    height: 30px;
+    background-color: rgb(69, 69, 69);
+    color: white;
+    border: none;
+}
+
+main > form > input[type=button]:hover {
+    background-color: rgb(113, 113, 113);
+    cursor: pointer;
+}
+
+main > div#imagem {
     width: 200px;
     height: 200px;
     margin: 20px auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     background-color: white;
     border-radius: 50%;
 }
 
+main > p#str {
+    height: 16px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}

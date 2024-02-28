@@ -11,58 +11,81 @@
         <h1>Verificador de Idade</h1>
     </header>
     <main>
-        <form action='' method="post">
-            <div id="idade">
-                <label for="idade">Idade: </label>
-                <input type="number" id="idade">
+        <form action='#' method="post">
+            <div id="ano">
+                <label for="anoDeNascimento">Ano de Nascimento:</label>
+                <input type="number" id="anoDeNascimento">
             </div>
             <div id="sexo">
                 <fieldset>
                     <legend id="sexo">Sexo:</legend>
-                    <input type="radio" name="sexo" id="isexo" value="M"><label for="sexo">Mascuino</label>
-                    <input type="radio" name="sexo" id="isexo" value="F"><label for="sexo">Feminino</label>
+                    <input type="radio" name="sexo" id="masculino" value="M"><label for="masculino">Masculino</label>
+                    <input type="radio" name="sexo" id="feminino" value="F"><label for="feminino">Feminino</label>
                 </fieldset>
             </div>
-            <div id="imagem"><!-- Aqui vai a imagem --></div>
-            <p id="str"><!-- Aqui vai a str --></p>
             <input type="button" value="Verificar" onclick="verificar()">
         </form>
+        <div id="imagem"><!-- Aqui vai a imagem --></div>
+        <p id="str"><!-- Aqui vai a str--></p>
     </main>
     <script>
         function verificarIdade() {
             const ano = 2024
-            var anoDeNascimento = window.document.querySelector("input#idade").value
+            var anoDeNascimento = window.document.querySelector("input#anoDeNascimento").value
             var idade = ano - anoDeNascimento
             return idade
         }
 
         function faixaEtaria() {
-            const idade = verificarIdade()
+            var idade = verificarIdade()
             const bebe = 2
             const crianca = 12
             const adolescente = 17
             const adulto = 50
             if (idade <= bebe) {
-                return faixaEtaria = "bebê"
+                return "bebê"
             } else if (idade <= crianca) {
-                return faixaEtaria = "criança"
+                return "criança"
             } else if (idade <= adolescente) {
-                return faixaEtaria = "adolescente"
+                return "adolescente"
             } else if (idade <= adulto) {
-                return faixaEtaria = "adulto"
+                return "adulto"
             } else {
-                return faixaEtaria = "idoso"
+                return "idoso"
             }
         }
 
-
-
         function verificar() {
+            var imagem = window.document.querySelector("div#imagem")
             var texto = window.document.querySelector("p#str")
-            texto.innerHTML = (`<p>${faixaEtaria()} de ${verificarIdade()} anos.</p>`)
+            var sexo = window.document.querySelector("input[name=sexo]:checked").value
+            texto.innerHTML = `${faixaEtaria()} de ${verificarIdade()} anos.`
+            if (sexo == 'M') {
+                if (faixaEtaria() == "bebê") {
+                    imagem.style.backgroundImage = 'url(imagens/bebe-masculino.jpg)'
+                } else if (faixaEtaria() == "criança") {
+                    imagem.style.backgroundImage = 'url(imagens/crianca-masculino.jpg)'
+                } else if (faixaEtaria() == "adolescente") {
+                    imagem.style.backgroundImage = "url(imagens/adolescente-masculino.jpg)"
+                } else if (faixaEtaria() == "adulto") {
+                    imagem.style.backgroundImage = "url(imagens/adulto-masculino.jpg)"
+                } else {
+                    imagem.style.backgroundImage = "url(imagens/idoso-masculino.jpg)"
+                }
+            } else if (sexo == "F"){
+                if (faixaEtaria() == "bebê") {
+                    imagem.style.backgroundImage = 'url(imagens/bebe-feminino.jpg)'
+                } else if (faixaEtaria() == "criança") {
+                    imagem.style.backgroundImage = 'url(imagens/crianca-feminino.jpg)'
+                } else if (faixaEtaria() == "adolescente") {
+                    imagem.style.backgroundImage = "url(imagens/adolescente-feminino.jpg)"
+                } else if (faixaEtaria() == "adulto") {
+                    imagem.style.backgroundImage = "url(imagens/adulto-feminino.jpg)"
+                } else {
+                    imagem.style.backgroundImage = "url(imagens/idoso-feminino.jpg)"
+                }
+            }
         }
-
-        
     </script>
 </body>
 </html>
