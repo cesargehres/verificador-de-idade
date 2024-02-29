@@ -59,7 +59,12 @@
             var imagem = window.document.querySelector("div#imagem")
             var texto = window.document.querySelector("p#str")
             var sexo = window.document.querySelector("input[name=sexo]:checked").value
-            texto.innerHTML = `${faixaEtaria()} de ${verificarIdade()} anos.`
+            if (verificarIdade() > 120 || verificarIdade() < 0) {
+                return alert("Erro! Digite um ano válido")
+            }
+
+            texto.innerHTML = `${faixaEtaria()[0].toUpperCase() + faixaEtaria().substring(1)} de ${verificarIdade()} anos.`
+
             if (sexo == 'M') {
                 if (faixaEtaria() == "bebê") {
                     imagem.style.backgroundImage = 'url(imagens/bebe-masculino.jpg)'
@@ -81,8 +86,10 @@
                     imagem.style.backgroundImage = "url(imagens/adolescente-feminino.jpg)"
                 } else if (faixaEtaria() == "adulto") {
                     imagem.style.backgroundImage = "url(imagens/adulto-feminino.jpg)"
+                    texto.innerHTML = `Adulta de ${verificarIdade()} anos.`
                 } else {
                     imagem.style.backgroundImage = "url(imagens/idoso-feminino.jpg)"
+                    texto.innerHTML = `Idosa de ${verificarIdade()} anos.`
                 }
             }
         }
